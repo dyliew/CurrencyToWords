@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyToWords.Services", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyToWords.Cnsl", "CurrencyToWords.Cnsl\CurrencyToWords.Cnsl.csproj", "{1C4AF939-22E6-4531-886A-3BB6DCD1174E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyToWords.Services.Test", "CurrencyToWords.Services.Test\CurrencyToWords.Services.Test.csproj", "{63DF2760-CE10-4F62-B275-1A1E28FFB231}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{1C4AF939-22E6-4531-886A-3BB6DCD1174E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C4AF939-22E6-4531-886A-3BB6DCD1174E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C4AF939-22E6-4531-886A-3BB6DCD1174E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63DF2760-CE10-4F62-B275-1A1E28FFB231}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63DF2760-CE10-4F62-B275-1A1E28FFB231}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63DF2760-CE10-4F62-B275-1A1E28FFB231}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63DF2760-CE10-4F62-B275-1A1E28FFB231}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
