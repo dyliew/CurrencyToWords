@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Text.RegularExpressions;
 using CurrencyToWords.Services.Components;
 
 namespace CurrencyToWords.Services
@@ -17,6 +18,8 @@ namespace CurrencyToWords.Services
 
         public string ConvertPrice(string input)
         {
+            ValidateInput(input);
+
             var inputArr = input.Split('.');
 
             // perform dollar transformation
@@ -41,6 +44,19 @@ namespace CurrencyToWords.Services
 
             // return result
             return outputString;   
+        }
+
+        private void ValidateInput(string input)
+        {
+            var inputArr = input.Split('.');
+
+            if (inputArr[0].Length > 13 || inputArr.Length > 2)
+                throw new FormatException(string.Format("Input is not valid. Value: {0}", input));
+
+            var regex = new Regex(@"\d*(\.\d{0,2})$");
+
+            if (inputArr.Length == 2 && !regex.Match(input).Success)
+                throw new FormatException(string.Format("Input is not valid. Value: {0}", input));
         }
 
         private string GetWordsForAmount(string amountString, string suffix)

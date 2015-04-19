@@ -50,15 +50,6 @@ namespace CurrencyToWords.Services.Test
 
             result = _ns.ConvertPrice("123.45");
             Assert.AreEqual("ONE HUNDRED AND TWENTY-THREE DOLLARS AND FORTY-FIVE CENTS", result.ToUpper());
-
-            result = _ns.ConvertPrice("1.111");
-            Assert.AreEqual("ONE DOLLAR AND ELEVEN CENTS", result.ToUpper());
-
-            result = _ns.ConvertPrice("0.117");
-            Assert.AreEqual("TWELVE CENTS", result.ToUpper());
-
-            result = _ns.ConvertPrice(".198");
-            Assert.AreEqual("TWENTY CENTS", result.ToUpper());
         }
 
         [TestMethod]
@@ -87,6 +78,41 @@ namespace CurrencyToWords.Services.Test
         public void InvalidCharInputTest4()
         {
             var result = _ns.ConvertPrice("ac2");
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(FormatException), "invalid input string.")]
+        public void InvalidCharInputTest5()
+        {
+            var result = _ns.ConvertPrice("1.111");
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(FormatException), "invalid input string.")]
+        public void InvalidCharInputTest6()
+        {
+            var result = _ns.ConvertPrice("0.117");
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(FormatException), "invalid input string.")]
+        public void InvalidCharInputTest7()
+        {
+            var result = _ns.ConvertPrice(".198");
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(FormatException), "invalid input string.")]
+        public void InvalidCharInputTest8()
+        {
+            var result = _ns.ConvertPrice("101.1.1");
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(FormatException), "invalid input string.")]
+        public void InvalidCharInputTest9()
+        {
+            var result = _ns.ConvertPrice("11111222223333.23");
         }
     }
 }
