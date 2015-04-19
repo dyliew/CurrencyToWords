@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>Price To Words</title>
+
+        <!-- Style sheets -->
+        <link href="Content/bootstrap.css" rel="stylesheet" />
+        <link href="Style/bootstrap-paper.css" rel="stylesheet" />
+
+    </head>
+
+<body ng-app="currencyToWordsApp" class="container" ng-cloak>
+    <div>
+        <div ng-include="'views/header.html'"></div>
+    </div>
+
+    <br />
+    <br />
+
+    <div ng-controller="MainCtrl" class="row">
+        <div class="col-sm-6 col-sm-offset-3 panel panel-title">
+            <div class="panel-heading">Amount Input</div>
+            <div class="panel-body ">
+                <form name="getWordsForm" novalidate>
+                    <p class="text-primary">Please enter an amount</p>
+                    <div class="well well-sm"><h6 class="text-info">minimum $0 maximum $9999999999999.99</h6></div>
+                    <div class="input-group">
+                        <span class="input-group-addon">$</span>
+                        <input name="input" ng-model="input" ng-change="getWords()" type="number" class="form-control" placeholder="Input"
+                               min="0" max="9999999999999.99" ng-pattern="/^[0-9]*(\.+[0-9]{0,2})?$/" step="0.01" required>
+                    </div>
+                    <br />
+                    <p class="text-primary">Output</p>
+                    <p class="text-warning" ng-show="!getWordsForm.input.$valid && !getWordsForm.input.$error.required"> Not a valid input </p>
+                    <p class="text-muted" ng-show="getWordsForm.input.$error.required"> Please enter a value </p>
+                    <p ng-class="{'text-success': !hasError, 'text-uppercase': !hasError, 'text-warning': hasError}"> {{ output }} </p>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <br />
+
+    <div class="row">
+        <div class="col-sm-offset-3">
+            <footer>by Dao Yang Liew</footer>
+        </div>
+    </div>
+
+    <!-- Library Scripts -->
+    <script src="Scripts/jquery-1.9.1.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-ui/ui-bootstrap.js"></script>
+
+    <!-- Application Script -->
+    <script src="app/app.js"></script>
+
+    <!-- Product Controllers -->
+    <script src="app/controllers/headerCtrl.js"></script>
+    <script src="app/controllers/mainCtrl.js"></script>
+</body>
+</html>
